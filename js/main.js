@@ -13,25 +13,42 @@ console.log('Works');
 let turnSelect = 1;
 $('.box').on('click', function() {
   if($(this).hasClass('filled')) {
-  alert('Already selected!');
-  return;
-}
-  if(turnSelect % 2 === 0) {
+    alert('Already selected!');
+    return;
+  }
   $(this).css({'background-image': "url('images/symbol2.png')"})
-   $(this).addClass('Player-Two filled')
-   //console.log('turn 2'); test
-   turnSelect++;
-   winCheck('Player-Two');
+  $(this).addClass('Player-Two filled')
+  turnSelect++;
+  winCheck('Player-Two');
 
- } else {
-   $(this).css({'background-image': "url('images/symbol1.png')"})
-   $(this).addClass('Player-One filled') // adding two classes
-   //console.log('turn 1'); test
-   turnSelect++; // add 1 - next turn is player two's turn
-   winCheck('Player-One'); // passing in player one
- }
+  // if(turnSelect % 2 === 0) {
+  //   $(this).css({'background-image': "url('images/symbol2.png')"})
+  //   $(this).addClass('Player-Two filled')
+  //   //console.log('turn 2'); test
+  //   turnSelect++;
+  //   winCheck('Player-Two');
+  //
+  // } else {
+  //   $(this).css({'background-image': "url('images/symbol1.png')"})
+  //   $(this).addClass('Player-One filled') // adding two classes
+  //   //console.log('turn 1'); test
+  //   turnSelect++; // add 1 - next turn is player two's turn
+  //   winCheck('Player-One'); // passing in player one
+  // }
 
- });
+
+  // play computer move - computer always to click in the same square
+  $('.box').not('.Player-Two filled').css({'background-image': "url('images/symbol1.png')"})
+
+
+//   $('#5').addClass('Player-One filled')
+//   turnSelect++;
+
+//
+//
+// See if you can work out how to select the squares without the filled class, and get them in an array so you can randomly pick one
+
+}); // end of click handler
 
 
   const winCheck = function(selected){
@@ -59,7 +76,7 @@ $('.box').on('click', function() {
     }
     if(winResult) {
       $('.winMessage').text(`${selected} wins!`)
-      console.log('You win');
+      // console.log('You win');
       // alert('You win'); - need to creat the alert AFTER the third icon has been inputted
     }
 
@@ -84,4 +101,13 @@ $('.box').on('click', function() {
 // Draw message & personal
 
 
-// math.random 
+
+// AI function
+// 1. Pick a random number
+// 2. try and put symbol in that square
+// 3. if it's already got a symbol in that square, try again
+
+
+
+// Get a random position from the length(number of divs) on your board which is 9 and you’ve already done the correct step on line 3 there
+// then you just want to take that random position(which will be whatever number your div is) and make the AI place it’s marker/token there
