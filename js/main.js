@@ -14,6 +14,7 @@ let turnSelect = 1;
 $('.box').on('click', function() {
   if($(this).hasClass('filled')) {
   alert('Already selected!');
+  return;
 }
   if(turnSelect % 2 === 0) {
   $(this).css({'background-image': "url('images/symbol2.png')"})
@@ -71,6 +72,7 @@ $('.box').on('click', function() {
     $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
     $('.box').removeClass('Player-One Player-Two filled') // resets selected class for players
     $('.winMessage').text(' ')
+    turnSelect = 1;
 
   // NEED TO CLEAR winMessage
 
@@ -80,3 +82,6 @@ $('.box').on('click', function() {
 
 // Pop up message that you won and combine with reset button
 // Draw message & personal
+
+
+// math.random 

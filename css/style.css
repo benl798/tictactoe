@@ -11,44 +11,73 @@ h1 {
 }
 
 
+.container {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .game-board{
   display: grid;
   grid-template-columns: auto auto auto;
   border: 30px solid #2b2a2bf0;
   border-radius: 7px;
+  position: relative;
+  height: 70vh;
+  width: 70vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
 
 }
 .box {
-       height: 100px;
-       width: 100px;
+       height: 33.3%;
+       width: 33.3%;
        background-color: rgb(49 30 53 / 80%);
-       border: 25px solid;
+       border: 25px solid #6c3a6c;
        border-radius: 50%;
        margin: 10px;
        padding: 20px;
-  /* background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center; */
+       position: relative;
+       background-size: contain;
 }
 
+
 .btn {
+  text-align: center;
   border: 2px solid black;
-  background-color: white;
+  background-color:#6c3a6c ;
   color: black;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
+  font-family: 'Audiowide', cursive;
+  position: relative;
+  margin: auto;
+  /* width: 8%;
+  left: 46%; */
+
+
+
+
+
+
+
 }
 
 
 .reset {
-  border-color: #f44336;
-  color: red;
+  border-color: #2b2a2bf0;
+  color: #2b2a2bf0;
 }
 
 .reset:hover {
-  background: #f44336;
+  background: #2b2a2bf0;
   color: white;
+}
+
+.winMessage {
+  text-align: center;
+  color: #2b2a2bf0;
 }
