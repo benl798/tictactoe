@@ -38,7 +38,22 @@ $('.box').on('click', function() {
 
 
   // play computer move - computer always to click in the same square
-  $('.box').not('.Player-Two filled').css({'background-image': "url('images/symbol1.png')"})
+  // $('.box').not('.filled').css({'background-image': "url('images/symbol1.png')"})
+  // 1. Create an array of divs that have not been filled
+  // 2. select one using math.random
+  // 3. attach the fucking image to the div
+
+  const emptyDivs = $('.box').not('.filled');
+  const randomEmptyDiv = emptyDivs[Math.floor(Math.random() * emptyDivs.length)];
+  console.log(randomEmptyDiv);
+
+  
+  // function cpuMove() {
+
+  //}
+
+  // cpuMove(randomEmptyDiv);
+
 
 
 //   $('#5').addClass('Player-One filled')
