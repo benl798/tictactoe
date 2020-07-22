@@ -66,10 +66,14 @@ $('.box').on('click', function() {
   }; // end of winCheck
 
 // set win result back to default and remove images
-  $('#btn').on('click', function() { // reset the game once a player wins
+  $('.btn').on('click', function() { // reset the game once a player wins
     // console.log('reset'); test
     $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
     $('.box').removeClass('Player-One Player-Two filled') // resets selected class for players
+    $('.winMessage').text(' ')
+
+  // NEED TO CLEAR winMessage
+
   }); // end of reset button
 
 }); // end of document.ready
