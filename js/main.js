@@ -47,7 +47,9 @@ $('.box').on('click', function() {
   const randomEmptyDiv = emptyDivs[Math.floor(Math.random() * emptyDivs.length)];
   console.log(randomEmptyDiv);
 
-  
+
+
+
   // function cpuMove() {
 
   //}
