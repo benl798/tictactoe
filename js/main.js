@@ -57,11 +57,22 @@ $('.box').on('click', function() {
       winResult = true;
     }
     if(winResult) {
+      $('.winMessage').text(`${selected} wins!`)
       console.log('You win');
+      // alert('You win'); - need to creat the alert AFTER the third icon has been inputted
     }
 
 
   }; // end of winCheck
 
+// set win result back to default and remove images
+  $('#btn').on('click', function() { // reset the game once a player wins
+    // console.log('reset'); test
+    $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
+    $('.box').removeClass('Player-One Player-Two filled') // resets selected class for players
+  }); // end of reset button
 
-  }); // end of document.ready
+}); // end of document.ready
+
+// Pop up message that you won and combine with reset button
+// Draw message & personal
