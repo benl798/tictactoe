@@ -13,7 +13,6 @@ console.log('Works');
 
     // console.log('DOM ready!');
 
-
 let turnSelect = 1;
 
 //------------------------------Click Function------------------------------
@@ -22,7 +21,8 @@ $('.box').on('click', function() {
 
 
 //------------------------------Alert for already select space---------------
-  if($(this).hasClass('filled')) {
+
+  if($(this).hasClass('filled')) { // checks whether
 
     alert('Uh oh! This space has already been filled!');
 
@@ -31,11 +31,11 @@ $('.box').on('click', function() {
 
 //--------------------------Player Move----------------------------------------------
 
-  $(this).css({'background-image': "url('images/symbol2.png')"})
+  $(this).css({'background-image': "url('images/symbol2.png')"}) // attaches symbol2 to the square selected
 
-  $(this).addClass('Player-One filled')
+  $(this).addClass('Player-One filled') // gives two classes to the square selected
 
-  turnSelect++;
+  turnSelect++; //
 
   let result = winCheck('Player-One');
 
@@ -78,7 +78,6 @@ $('.box').on('click', function() {
 
      winCheck('Player-Two');
 
-
  }
  console.log(cpuMove());
 
@@ -92,35 +91,77 @@ $('.box').on('click', function() {
     let winResult = false; // by default not won yet
 
     // determines whether any of the possible solutions are true
+
     if ($('#1').hasClass(selected) && $('#2').hasClass(selected) && $('#3').hasClass(selected)) {
       // console.log('winner'); test
       winResult = true;
 
+      $('#1').addClass('winningRow');
+      $('#2').addClass('winningRow');
+      $('#3').addClass('winningRow');
+
+
     } else if ($('#4').hasClass(selected) && $('#5').hasClass(selected) && $('#6').hasClass(selected)) {
       winResult = true;
+
+      $('#4').addClass('winningRow');
+      $('#5').addClass('winningRow');
+      $('#6').addClass('winningRow');
+
 
     } else if ($('#7').hasClass(selected) && $('#8').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
 
+      $('#7').addClass('winningRow');
+      $('#8').addClass('winningRow');
+      $('#9').addClass('winningRow');
+
+
     } else if ($('#1').hasClass(selected) && $('#4').hasClass(selected) && $('#7').hasClass(selected)) {
       winResult = true;
+
+      $('#1').addClass('winningRow');
+      $('#4').addClass('winningRow');
+      $('#7').addClass('winningRow');
+
 
     } else if ($('#2').hasClass(selected) && $('#5').hasClass(selected) && $('#8').hasClass(selected)) {
       winResult = true;
 
+      $('#2').addClass('winningRow');
+      $('#5').addClass('winningRow');
+      $('#8').addClass('winningRow');
+
+
     } else if ($('#3').hasClass(selected) && $('#6').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
+
+      $('#3').addClass('winningRow');
+      $('#6').addClass('winningRow');
+      $('#9').addClass('winningRow');
+
 
     } else if ($('#1').hasClass(selected) && $('#5').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
 
+      $('#1').addClass('winningRow');
+      $('#5').addClass('winningRow');
+      $('#9').addClass('winningRow');
+
+
     } else if ($('#3').hasClass(selected) && $('#5').hasClass(selected) && $('#7').hasClass(selected)) {
       winResult = true;
+
+      $('#3').addClass('winningRow');
+      $('#5').addClass('winningRow');
+      $('#7').addClass('winningRow');
+
     }
 
     if(winResult) {
 
       $('.winMessage').text(`${selected} wins!`)
+      // Highlight winning classes in a row
 
       return true;
 
@@ -155,11 +196,11 @@ $('.box').on('click', function() {
 
     $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
 
-    $('.box').removeClass('Player-One Player-Two filled') // resets selected class for players
+    $('.box').removeClass('Player-One Player-Two filled winningRow') // resets selected class for players
 
     $('.winMessage').text(' ') // resets the win message to empty
 
-    turnSelect = 1;
+    turnSelect = 1; // resets turn number to 1
 
   }); // end of reset button
 
