@@ -96,73 +96,53 @@ $('.box').on('click', function() {
       // console.log('winner'); test
       winResult = true;
 
-      $('#1').addClass('winningRow');
-      $('#2').addClass('winningRow');
-      $('#3').addClass('winningRow');
+      $('#1,#2,#3').addClass('winningRow'); // select multiple boxes to add the winningRow class
 
 
     } else if ($('#4').hasClass(selected) && $('#5').hasClass(selected) && $('#6').hasClass(selected)) {
       winResult = true;
 
-      $('#4').addClass('winningRow');
-      $('#5').addClass('winningRow');
-      $('#6').addClass('winningRow');
+      $('#4,#5,#6').addClass('winningRow');
 
 
     } else if ($('#7').hasClass(selected) && $('#8').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
 
-      $('#7').addClass('winningRow');
-      $('#8').addClass('winningRow');
-      $('#9').addClass('winningRow');
+      $('#7,#8,#9').addClass('winningRow');
 
 
     } else if ($('#1').hasClass(selected) && $('#4').hasClass(selected) && $('#7').hasClass(selected)) {
       winResult = true;
 
-      $('#1').addClass('winningRow');
-      $('#4').addClass('winningRow');
-      $('#7').addClass('winningRow');
+      $('#1,#4,#7').addClass('winningRow');
 
 
     } else if ($('#2').hasClass(selected) && $('#5').hasClass(selected) && $('#8').hasClass(selected)) {
       winResult = true;
 
-      $('#2').addClass('winningRow');
-      $('#5').addClass('winningRow');
-      $('#8').addClass('winningRow');
+      $('#2,#5,#8').addClass('winningRow');
 
 
     } else if ($('#3').hasClass(selected) && $('#6').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
 
-      $('#3').addClass('winningRow');
-      $('#6').addClass('winningRow');
-      $('#9').addClass('winningRow');
+      $('#3,#6,#9').addClass('winningRow');
 
 
     } else if ($('#1').hasClass(selected) && $('#5').hasClass(selected) && $('#9').hasClass(selected)) {
       winResult = true;
 
-      $('#1').addClass('winningRow');
-      $('#5').addClass('winningRow');
-      $('#9').addClass('winningRow');
+      $('#1,#5,#9').addClass('winningRow');
 
 
     } else if ($('#3').hasClass(selected) && $('#5').hasClass(selected) && $('#7').hasClass(selected)) {
       winResult = true;
 
-      $('#3').addClass('winningRow');
-      $('#5').addClass('winningRow');
-      $('#7').addClass('winningRow');
-
+      $('#3,#5,#7').addClass('winningRow');
     }
 
     if(winResult) {
-
       $('.winMessage').text(`${selected} wins!`)
-      // Highlight winning classes in a row
-
       return true;
 
 
