@@ -13,15 +13,23 @@ console.log('Works');
 
     // console.log('DOM ready!');
 
+
 let turnSelect = 1;
+
+//------------------------------Click Function------------------------------
+
 $('.box').on('click', function() {
 
+
+//------------------------------Alert for already select space---------------
   if($(this).hasClass('filled')) {
 
     alert('Uh oh! This space has already been filled!');
 
     return;
   }
+
+//--------------------------Player Move----------------------------------------------
 
   $(this).css({'background-image': "url('images/symbol2.png')"})
 
@@ -52,6 +60,10 @@ $('.box').on('click', function() {
   //   turnSelect++; // add 1 - next turn is player two's turn
   //   winCheck('Player-One'); // passing in player one
   // }
+
+
+//---------------------------CPU Player-------------------------------
+
   function cpuMove() {
 
      const emptyDivs = $('.box').not('.filled');
@@ -73,6 +85,7 @@ $('.box').on('click', function() {
 
 }); // end of click handler
 
+//------------------------------Win Conditions------------------------------------------------
 
   const winCheck = function(selected){
 
@@ -112,32 +125,40 @@ $('.box').on('click', function() {
       return true;
 
 
+
+//---------------------------Draw result -------------------------------------
+
     } else if (winResult === false) { // runs everytime that the game hasnt been won, reverting to win result = false
+
       let filledBox = 0; // variable that starts at 0 to count how many boxes have been filled
+
       let boxGrid = $('.box'); // setting the variable box grid to be all the elements with a class of 'box' and changing it to a jquery object
+
       for (var i = 0; i < 9;  i++) { // loop 1-9 (dimensions of the board)
 
         if ($(boxGrid[i]).hasClass('filled')) { // checking if the box you're currently on has been filled
           filledBox = filledBox +1; // if it has then add 1 to the filled box counter
         }
-
       }
       if (filledBox === 9){ // if all the boxes have been filled and = 9 then display the win message
         $('.winMessage').text(`It's a draw!`)
       }
-
     }
-
-
   }; // end of winCheck
+
+
+//--------------------------------Reset Button------------------------------------
 
 // set win result back to default and remove images
   $('.btn').on('click', function() { // reset the game once a player wins
     // console.log('reset'); test
+
     $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
 
     $('.box').removeClass('Player-One Player-Two filled') // resets selected class for players
+
     $('.winMessage').text(' ') // resets the win message to empty
+
     turnSelect = 1;
 
   }); // end of reset button
