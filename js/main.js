@@ -19,7 +19,12 @@ $('.box').on('click', function() {
   $(this).css({'background-image': "url('images/symbol2.png')"})
   $(this).addClass('Player-Two filled')
   turnSelect++;
-  winCheck('Player-Two');
+  let result = winCheck('Player-Two');
+  if (result) {
+    return;
+  }
+
+  // if winCheck = true
 
   // if(turnSelect % 2 === 0) {
   //   $(this).css({'background-image': "url('images/symbol2.png')"})
@@ -67,6 +72,12 @@ $('.box').on('click', function() {
      //console.log(emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length)));
      const newDiv = emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length));
      newDiv.css({'background-image': "url('images/symbol1.png')"});
+     newDiv.addClass('Player-One filled')
+     turnSelect++;
+     winCheck('Player-One');
+
+     // addClass('Player-Two filled');
+     // winCheck('Player-One');
 
  }
  console.log(cpuMove());
@@ -86,18 +97,6 @@ $('.box').on('click', function() {
 //         // then add ur css here so like $(`#${randomNumber}`).css
 //     }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }); // end of click handler
@@ -128,6 +127,7 @@ $('.box').on('click', function() {
     }
     if(winResult) {
       $('.winMessage').text(`${selected} wins!`)
+      return true;
       // console.log('You win');
       // alert('You win'); - need to creat the alert AFTER the third icon has been inputted
     }
