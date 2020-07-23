@@ -43,27 +43,62 @@ $('.box').on('click', function() {
   // 2. select one using math.random
   // 3. attach the fucking image to the div
 
-  const emptyDivs = $('.box').not('.filled');
-  const randomEmptyDiv = emptyDivs[Math.floor(Math.random() * emptyDivs.length)];
-  console.log(randomEmptyDiv);
+  // const emptyDivs = $('.box').not('.filled');
+
+  // function cpuMove(emptyDivs) { // new function called cpuMove that takes the argument of all empty Divs
+  //   const emptyDivs = $('.box').not('.filled'); // new const that determines which classes
+  //   console.log(cpuMove(emptyDivs));
+  //
+  //   return emptyDivs[Math.floor(Math.random() * emptyDivs.length)];
+  //
+  //
+  // }
+  //
+  // const emptyDivs = $('.box').not('.filled'); // new const that determines which classes have not yet been selected/click on
+  // console.log(cpuMove(emptyDivs));
+
+
+// if ai = true then disable and leave ai, else
+// on click event
+
+  function cpuMove() {
+     const emptyDivs = $('.box').not('.filled');
+     //return emptyDivs[Math.floor(Math.random() * emptyDivs.length)];
+     //console.log(emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length)));
+     const newDiv = emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length));
+     newDiv.css({'background-image': "url('images/symbol1.png')"});
+
+ }
+ console.log(cpuMove());
+
+
+    // newDiv.css({'background-image': "url('images/symbol2.png')"});
+    // emptyDivs.isArray();
+
+    // create a for loop that will run 9 times
 
 
 
 
-  // function cpuMove() {
+// randomNumber = Math.floor(Math.random() * 9);
+// for (let i = 0; i < 9; i++) {
+//     if ($(`#${randomNumber}`).not('.filled')) {
+//         // then add ur css here so like $(`#${randomNumber}`).css
+//     }
+// }
 
-  //}
-
-  // cpuMove(randomEmptyDiv);
 
 
 
-//   $('#5').addClass('Player-One filled')
-//   turnSelect++;
 
-//
-//
-// See if you can work out how to select the squares without the filled class, and get them in an array so you can randomly pick one
+
+
+
+
+
+
+
+
 
 }); // end of click handler
 

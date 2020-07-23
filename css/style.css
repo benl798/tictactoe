@@ -32,8 +32,9 @@ h1 {
 
 }
 .box {
-       height: 33.3%;
-       width: 33.3%;
+       /* height: 33.3%;
+       width: 33.3%; */
+       flex: 30%;
        background-color: rgb(49 30 53 / 80%);
        border: 25px solid #6c3a6c;
        border-radius: 50%;
