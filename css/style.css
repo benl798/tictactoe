@@ -8,7 +8,7 @@ body {
 h1 {
   text-align: center;
   color: #2b2a2bf0;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 
@@ -72,9 +72,15 @@ h1 {
 .winMessage {
   text-align: center;
   color: #2b2a2bf0;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .winningRow {
   background-color: #754bbe;
+}
+
+.winCount {
+  text-align: center;
+  color: #2b2a2bf0;
+  font-size: 20px;
 }

@@ -143,6 +143,15 @@ $('.box').on('click', function() {
 
     if(winResult) {
       $('.winMessage').text(`${selected} wins!`)
+
+
+      if (selected === 'Player-One'){ // curly brackets to run the code
+        playerOneCount++;
+
+      } else if (selected === 'Player-Two') {
+        playerTwoCount++;
+      }
+       $('.winCount').text(`Player One: ${playerOneCount} CPU: ${playerTwoCount} `)
       return true;
 
 
@@ -183,5 +192,11 @@ $('.box').on('click', function() {
     turnSelect = 1; // resets turn number to 1
 
   }); // end of reset button
+
+
+//------------------------Win count---------------------------------------
+
+  let playerOneCount = 0;
+  let playerTwoCount = 0;
 
 }); // end of document.ready
