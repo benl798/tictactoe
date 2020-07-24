@@ -1,13 +1,12 @@
 $(document).ready(function(){
 
 let turnSelect = 1;
-let playerOneCount = 0;
-let playerTwoCount = 0;
+let playerOneScore = 0;
+let cpuScore = 0;
 
 //------------------------------Click Function------------------------------
 
 $('.box').on('click', function() {
-
 
 //------------------------------Alert for already filled space---------------
 
@@ -135,12 +134,12 @@ $('.box').on('click', function() {
 
 
       if (selected === 'Player-One'){ // curly brackets to run the code
-        playerOneCount++;
+        playerOneScore++;
 
       } else if (selected === 'CPU') {
-        playerTwoCount++;
+        cpuScore++;
       }
-       $('.winCount').text(`Player One: ${playerOneCount} CPU: ${playerTwoCount} `)
+       $('.winCount').text(`Player One: ${playerOneScore} CPU: ${cpuScore} `)
       return true;
 
 
