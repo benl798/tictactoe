@@ -1,26 +1,15 @@
-console.log('Works');
-
-// 1. The size of the game map is 3×3.
-// 2. We have 2 players (X & O).
-// 3. Each player makes a single move in his turn.
-// 4. A move means marking a field in the grid with the player’s mark(x or o).
-// 5. A player wins when he has a full row / column / diagonal.
-
-
-// if toggle switch = true then vs cpu if false vs player 2
-
-  $(document).ready(function(){
-
-    // console.log('DOM ready!');
+$(document).ready(function(){
 
 let turnSelect = 1;
+let playerOneCount = 0;
+let playerTwoCount = 0;
 
 //------------------------------Click Function------------------------------
 
 $('.box').on('click', function() {
 
 
-//------------------------------Alert for already select space---------------
+//------------------------------Alert for already filled space---------------
 
   if($(this).hasClass('filled')) { // checks whether
 
@@ -72,11 +61,11 @@ $('.box').on('click', function() {
 
      newDiv.css({'background-image': "url('images/symbol1.png')"});
 
-     newDiv.addClass('Player-Two filled')
+     newDiv.addClass('CPU filled')
 
      turnSelect++;
 
-     winCheck('Player-Two');
+     winCheck('CPU');
 
  }
  console.log(cpuMove());
@@ -148,7 +137,7 @@ $('.box').on('click', function() {
       if (selected === 'Player-One'){ // curly brackets to run the code
         playerOneCount++;
 
-      } else if (selected === 'Player-Two') {
+      } else if (selected === 'CPU') {
         playerTwoCount++;
       }
        $('.winCount').text(`Player One: ${playerOneCount} CPU: ${playerTwoCount} `)
@@ -185,18 +174,12 @@ $('.box').on('click', function() {
 
     $('.box').css({'background-image': 'none'}) // removes all images (x & o's)
 
-    $('.box').removeClass('Player-One Player-Two filled winningRow') // resets selected class for players
+    $('.box').removeClass('Player-One CPU filled winningRow') // resets selected class for players
 
     $('.winMessage').text(' ') // resets the win message to empty
 
     turnSelect = 1; // resets turn number to 1
 
   }); // end of reset button
-
-
-//------------------------Win count---------------------------------------
-
-  let playerOneCount = 0;
-  let playerTwoCount = 0;
 
 }); // end of document.ready
