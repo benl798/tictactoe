@@ -23,13 +23,13 @@ $('.box').on('click', function() {
 
   $(this).addClass('Player-One filled') // Adds two classes to the selected square
 
-  turnSelect++; // Incriment operator that adds one (+1) to turnSelect
+  turnSelect++; // Incriment operator that adds one (+1) to turnSelect and changes turn
 
-  let result = winCheck('Player-One');
+  let result = winCheck('Player-One');  // Runs the winCheck function and stores the return value in the variable (result)
 
   if (result) {
 
-    return;
+    return; // If result = true then exit the function if = false let CPU move
   }
 
 //-------------------------VS Player-Two-----------------------------------------
@@ -51,13 +51,13 @@ $('.box').on('click', function() {
   //   winCheck('Player-One'); // passing in player one
   // }
 
-//---------------------------CPU Player-------------------------------
+//---------------------------CPU Player Move-------------------------------
 
   function cpuMove() {
 
-     const emptyDivs = $('.box').not('.filled');
+     const emptyDivs = $('.box').not('.filled'); // Identifies all squares not selected
 
-     const newDiv = emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length));
+     const newDiv = emptyDivs.eq(Math.floor(Math.random() * emptyDivs.length)); // Randomly selects an available square
 
      newDiv.css({'background-image': "url('images/symbol1.png')"});
 
@@ -66,12 +66,12 @@ $('.box').on('click', function() {
      turnSelect++;
 
      winCheck('CPU');
-
  }
- console.log(cpuMove());
+
+ cpuMove(); // Runs the function
 
 
-}); // end of click handler
+}); // End of click handler
 
 //------------------------------Win Conditions-------------------------------------
 
@@ -80,9 +80,9 @@ $('.box').on('click', function() {
     let winResult = false;
 
     if ($('#1').hasClass(selected) && $('#2').hasClass(selected) && $('#3').hasClass(selected)) {
-      winResult = true; // Returns true if
+      winResult = true; // Returns true if the winning combination has been selected by the player or CPU
 
-      $('#1,#2,#3').addClass('winningRow'); // Highlights the winning play (CSS created)
+      $('#1,#2,#3').addClass('winningRow'); // Highlights the winning play (CSS)
 
 
     } else if ($('#4').hasClass(selected) && $('#5').hasClass(selected) && $('#6').hasClass(selected)) {
@@ -128,34 +128,35 @@ $('.box').on('click', function() {
     }
 
     if(winResult) {
-      $('.winMessage').text(`${selected} wins!`) //
+      $('.winMessage').text(`${selected} wins!`) // Displays win message
 
+//---------------------------Win Counter---------------------------------------
 
-      if (selected === 'Player-One'){ // curly brackets to run the code
-        playerOneScore++;
+      if (selected === 'Player-One'){
+        playerOneScore++; // (+1) to Player's score count
 
       } else if (selected === 'CPU') {
-        cpuScore++;
+        cpuScore++; // (+1) to CPU's score count
       }
        $('.winCount').text(`Player One: ${playerOneScore} CPU: ${cpuScore} `)
-      return true;
+      return true; // Displays win counter
 
 //---------------------------Draw result -------------------------------------
 
-    } else if (winResult === false) { // runs everytime that the game hasnt been won, reverting to win result = false
+    } else if (winResult === false) {
 
-      let filledBox = 0; // variable that starts at 0 to count how many boxes have been filled
+      let filledBox = 0;
 
-      let boxGrid = $('.box'); // setting the variable box grid to be all the elements with a class of 'box' and changing it to a jquery object
+      let boxGrid = $('.box'); // Creating a new variable and changing it to a jQuery object
 
-      for (var i = 0; i < 9;  i++) { // loop 1-9 (dimensions of the board)
+      for (var i = 0; i < 9;  i++) { // Loop through the dimensions of the board (1-9)
 
-        if ($(boxGrid[i]).hasClass('filled')) { // checking if the box you're currently on has been filled
-          filledBox = filledBox +1; // if it has then add 1 to the filled box counter
+        if ($(boxGrid[i]).hasClass('filled')) {
+          filledBox = filledBox +1;
         }
       }
-      if (filledBox === 9){ // if all the boxes have been filled and = 9 then display the win message
-        $('.winMessage').text(`It's a draw!`)
+      if (filledBox === 9){
+        $('.winMessage').text(`It's a draw!`) // If all squares have been selected and are = 9 then display draw message
       }
     }
   }; // End of winCheck
