@@ -18,6 +18,9 @@ You have been assigned the character 'Gengar' and will take turns playing agains
 
 The game will track the number of games both you and the CPU has won. To reset the board and play again simply click the 'Reset' button (don't worry this won't clear the score count).
 
+## Bugs and bits to continue working on
+
+There are a couple of pieces to the puzzle to touch up before the project is complete such as the game enabling you to select a free space after either you or the CPU has won the game. This unfortunately also creates issues with the score count but I will be sure to fix this shortly!
 
 ## My experience developing the game
 
